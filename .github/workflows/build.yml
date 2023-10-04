@@ -33,6 +33,7 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
+        # Can not use cache as package-lock.json is not commited in Git
         # cache: 'npm'
-    - run: npm install --fallback-to-build=false
+    - run: npm install
     - run: npm test
